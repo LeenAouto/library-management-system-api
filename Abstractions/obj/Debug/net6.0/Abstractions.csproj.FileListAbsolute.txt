@@ -1,0 +1,15 @@
+D:\Program Files\source\repos\library-management-system-api\Abstractions\bin\Debug\net6.0\Abstractions.deps.json
+D:\Program Files\source\repos\library-management-system-api\Abstractions\bin\Debug\net6.0\Abstractions.dll
+D:\Program Files\source\repos\library-management-system-api\Abstractions\bin\Debug\net6.0\Abstractions.pdb
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\Abstractions.csproj.AssemblyReference.cache
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\Abstractions.AssemblyInfoInputs.cache
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\Abstractions.AssemblyInfo.cs
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\Abstractions.csproj.CoreCompileInputs.cache
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\Abstractions.dll
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\refint\Abstractions.dll
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\Abstractions.pdb
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\ref\Abstractions.dll
+D:\Program Files\source\repos\library-management-system-api\Abstractions\bin\Debug\net6.0\Entities.dll
+D:\Program Files\source\repos\library-management-system-api\Abstractions\bin\Debug\net6.0\Entities.pdb
+D:\Program Files\source\repos\library-management-system-api\Abstractions\obj\Debug\net6.0\Abstractions.csproj.CopyComplete

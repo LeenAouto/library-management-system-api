@@ -1,0 +1,14 @@
+D:\Program Files\source\repos\library-management-system-api\Entities\bin\Debug\net6.0\Entities.deps.json
+D:\Program Files\source\repos\library-management-system-api\Entities\bin\Debug\net6.0\Entities.dll
+D:\Program Files\source\repos\library-management-system-api\Entities\bin\Debug\net6.0\Entities.pdb
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\Entities.csproj.AssemblyReference.cache
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\Entities.AssemblyInfoInputs.cache
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\Entities.AssemblyInfo.cs
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\Entities.csproj.CoreCompileInputs.cache
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\Entities.dll
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\refint\Entities.dll
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\Entities.pdb
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\ref\Entities.dll
+D:\Program Files\source\repos\library-management-system-api\Entities\bin\Debug\net6.0\Entities.runtimeconfig.json
+D:\Program Files\source\repos\library-management-system-api\Entities\obj\Debug\net6.0\Entities.genruntimeconfig.cache
