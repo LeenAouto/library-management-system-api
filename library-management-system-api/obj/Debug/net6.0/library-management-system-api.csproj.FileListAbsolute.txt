@@ -281,3 +281,12 @@ D:\Program Files\source\repos\library-management-system-api\library-management-s
 D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Entities.pdb
 D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Helpers.dll
 D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Helpers.pdb
+D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Serilog.dll
+D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Serilog.AspNetCore.dll
+D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+D:\Program Files\source\repos\library-management-system-api\library-management-system-api\bin\Debug\net6.0\Serilog.Sinks.File.dll

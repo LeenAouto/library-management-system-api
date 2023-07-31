@@ -3,7 +3,8 @@ namespace Entities.DTO
 {
     public class ReturnedReservationDTO : RecievedReservationDTO
     {
-        public string Username;
-        public string BookTitle;
+        public int Id { get; set; }
+        public string AppUserUserName { get; set; }
+        public string BookTitle { get; set; }
     }
 }

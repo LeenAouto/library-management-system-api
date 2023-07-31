@@ -1,0 +1,13 @@
+2023-07-31 11:49:14.798 +03:00 [INF] Testinggggggggggggggggggggggggggggg
+[2023-07-31 12:22:33.597 +03:00 [ERR] Testinggggggggggggggggggggggggggggg
+][2023-07-31 12:27:42.268 +03:00 [ERR] Testinggggggggggggggggggggggggggggg
+][2023-07-31 12:27:42.342 +03:00 [ERR] Getting a reservation
+][2023-07-31 12:28:10.253 +03:00 [ERR] Getting a reservation
+][2023-07-31 12:28:20.456 +03:00 [ERR] Getting a reservation
+][2023-07-31 12:41:16.115 +03:00 [ERR] Getting a reservation
+][2023-07-31 12:41:27.373 +03:00 [ERR] Getting a reservation
+]2023-07-31 14:19:58.005 +03:00 [ERR] From ResCont GetByIdAsync
+2023-07-31 14:22:26.807 +03:00 [ERR]    at library_management_system_api.Controllers.ReservationsController.GetByIdAsync(Int32 id) in D:\Program Files\source\repos\library-management-system-api\library-management-system-api\Controllers\ReservationsController.cs:line 58
+2023-07-31 14:23:55.352 +03:00 [ERR]    at DAL.ReservationManager.Get(Int32 id) in D:\Program Files\source\repos\library-management-system-api\DAL\ReservationManager.cs:line 24
+2023-07-31 14:23:55.854 +03:00 [ERR]    at DAL.ReservationManager.Get(Int32 id) in D:\Program Files\source\repos\library-management-system-api\DAL\ReservationManager.cs:line 24
+   at library_management_system_api.Controllers.ReservationsController.GetByIdAsync(Int32 id) in D:\Program Files\source\repos\library-management-system-api\library-management-system-api\Controllers\ReservationsController.cs:line 54

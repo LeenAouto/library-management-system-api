@@ -1,4 +1,5 @@
-﻿namespace Entities.AuthModels
+﻿
+namespace Entities.AuthModels
 {
     public class AddRoleModel
     {

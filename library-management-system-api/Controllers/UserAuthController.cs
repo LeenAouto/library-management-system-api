@@ -1,9 +1,8 @@
 ﻿using Abstractions;
+using DAL;
 using Entities.AuthModels;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 
 namespace library_management_system_api.Controllers
 {
@@ -12,54 +11,79 @@ namespace library_management_system_api.Controllers
     public class UserAuthController : ControllerBase
     {
         private readonly IUserAuthManager _userAuthManager;
+        private readonly ILogger<UserAuthManager> _logger;
 
-        public UserAuthController(IUserAuthManager userAuthManager)
+        public UserAuthController(IUserAuthManager userAuthManager, ILogger<UserAuthManager> logger)
         {
             _userAuthManager = userAuthManager;
+            _logger = logger;
         }
 
 
         [HttpPost("register")]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterModel registerModel)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-            var result = await _userAuthManager.RegisterAsync(registerModel);
+                var result = await _userAuthManager.RegisterAsync(registerModel);
 
-            if (!result.IsAuthenticated)
-                return BadRequest(result.Message);
+                if (!result.IsAuthenticated)
+                    return BadRequest(result.Message);
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (Exception e){
+                _logger.LogError(e.StackTrace);
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> GetTokenAsync([FromBody] TokenRequestModel tokenRequestModel)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-            var result = await _userAuthManager.GetTokenAsync(tokenRequestModel);
+                var result = await _userAuthManager.GetTokenAsync(tokenRequestModel);
 
-            if (!result.IsAuthenticated)
-                return BadRequest(result.Message);
+                if (!result.IsAuthenticated)
+                    return BadRequest(result.Message);
 
-            return Ok(result);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.StackTrace);
+                return BadRequest(e.Message);
+            }
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost("addrole")]
         public async Task<IActionResult> AddRoleAsync([FromBody] AddRoleModel addRoleModel)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            try
+            {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
-            var result = await _userAuthManager.AddRoleAsync(addRoleModel);
+                var result = await _userAuthManager.AddRoleAsync(addRoleModel);
 
-            if (!string.IsNullOrEmpty(result))
-                return BadRequest(result);
+                if (!string.IsNullOrEmpty(result))
+                    return BadRequest(result);
 
-            return Ok(addRoleModel);
+                return Ok(addRoleModel);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.StackTrace);
+                return BadRequest(e.Message);
+            }
         }
     }
 }

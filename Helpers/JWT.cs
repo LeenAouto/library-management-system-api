@@ -1,4 +1,5 @@
-﻿namespace Helpers
+﻿
+namespace Helpers
 {
     public class JWT
     {

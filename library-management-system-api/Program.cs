@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
-
 
 /////////////////////////////////////////////////////////////
 ////                 JWT CONFIGURATION                  ////
@@ -36,6 +36,21 @@ builder.Services.AddAuthentication(options =>
         };
     });
 /////////////////////////////////////////////////////////////
+
+//Log.Logger = new LoggerConfiguration()
+//    .WriteTo.Console()
+//    .CreateLogger();
+
+var _logger = new LoggerConfiguration().
+    ReadFrom.Configuration(builder.Configuration).
+    Enrich.FromLogContext()
+    //.MinimumLevel.Error()
+    //.WriteTo.File("D:\\Program Files\\source\\repos\\library-management-system-api\\Helpers\\SeriLogs\\log-.txt",
+    //rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+//builder.Host.UseSerilog();
+builder.Logging.AddSerilog(_logger);
 
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<LibraryDbContext>();
 
