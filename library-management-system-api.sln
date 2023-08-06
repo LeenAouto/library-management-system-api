@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "library-management-system-api", "library-management-system-api\library-management-system-api.csproj", "{1FE28FF3-AEC4-4CD6-93A6-F642A49E0F5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "library-management-system-api", "library-management-system-api\library-management-system-api.csproj", "{1FE28FF3-AEC4-4CD6-93A6-F642A49E0F5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{A0637590-95CA-411F-98B7-035FBDC706EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{A0637590-95CA-411F-98B7-035FBDC706EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstractions", "Abstractions\Abstractions.csproj", "{C78856AB-4AA1-4F54-8929-8421997D3941}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstractions", "Abstractions\Abstractions.csproj", "{C78856AB-4AA1-4F54-8929-8421997D3941}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{73F4E61B-A675-4A06-94E0-FB9B98161424}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{73F4E61B-A675-4A06-94E0-FB9B98161424}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{BC9A2ED0-5A16-48CC-8185-74F3F0BC7FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helpers", "Helpers\Helpers.csproj", "{BC9A2ED0-5A16-48CC-8185-74F3F0BC7FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{ABB2BEA8-F7FE-4B82-8133-AC8090198FD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BC9A2ED0-5A16-48CC-8185-74F3F0BC7FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC9A2ED0-5A16-48CC-8185-74F3F0BC7FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC9A2ED0-5A16-48CC-8185-74F3F0BC7FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB2BEA8-F7FE-4B82-8133-AC8090198FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB2BEA8-F7FE-4B82-8133-AC8090198FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB2BEA8-F7FE-4B82-8133-AC8090198FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB2BEA8-F7FE-4B82-8133-AC8090198FD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

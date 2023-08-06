@@ -74,7 +74,7 @@ namespace library_management_system_api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync(int id, [FromForm] RecievedBookDTO dto)
+        public async Task<IActionResult> UpdateAsync(int id, [FromBody] RecievedBookDTO dto)
         {
             try
             {
