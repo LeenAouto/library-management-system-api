@@ -20,7 +20,10 @@ namespace DAL
         {
             try
             {
-                return await _context.Reservations.SingleOrDefaultAsync(r => r.Id == id);
+                return await _context.Reservations.
+                    Include(r => r.AppUser).
+                    Include(r => r.Book).
+                    SingleOrDefaultAsync(r => r.Id == id);
             }
             catch (Exception e)
             {

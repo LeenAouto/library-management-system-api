@@ -122,7 +122,6 @@ namespace MVC.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -156,8 +155,6 @@ namespace MVC.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-
 
     }
 }

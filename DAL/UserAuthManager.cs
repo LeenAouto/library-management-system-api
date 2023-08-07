@@ -4,6 +4,7 @@ using Entities;
 using Entities.AuthModels;
 using Helpers;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -20,13 +21,28 @@ namespace DAL
         private readonly JWT _jwt;
         private readonly IMapper _mapper;
         private readonly ILogger<UserAuthManager> _logger;
-        public UserAuthManager(UserManager<AppUser> userManager, IOptions<JWT> jwt, RoleManager<IdentityRole> roleManager, IMapper mapper, ILogger<UserAuthManager> logger)
+        private readonly LibraryDbContext _context;
+        public UserAuthManager(UserManager<AppUser> userManager, IOptions<JWT> jwt, RoleManager<IdentityRole> roleManager, IMapper mapper, ILogger<UserAuthManager> logger, LibraryDbContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _jwt = jwt.Value;
             _mapper = mapper;
             _logger = logger;
+            _context = context;
+        }
+
+        public async Task<IEnumerable<AppUser>> GetAll()
+        {
+            try
+            {
+                return await _context.Users.ToListAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.StackTrace);
+                throw;
+            }
         }
 
         public async Task<AuthModel> RegisterAsync(RegisterModel model) //sign up
@@ -41,7 +57,6 @@ namespace DAL
                 if (await _userManager.FindByNameAsync(model.Username) != null)
                     return new AuthModel { Message = "Username is already registered" };
 
-                //Use automapper to map RegistrModel to the ApplicationUser
                 var user = _mapper.Map<AppUser>(model);
 
                 var result = await _userManager.CreateAsync(user, model.Password); //model.Password hashes the password before storing in database
@@ -146,6 +161,7 @@ namespace DAL
                 throw;
             }
         }
+
         private async Task<JwtSecurityToken> CreateJwtToken(AppUser user)
         {
             try
@@ -159,11 +175,11 @@ namespace DAL
 
                 var claims = new[]
                 {
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim("uid", user.Id)
-            }
+                    new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                    new Claim("uid", user.Id)
+                }
                 .Union(userClaims)
                 .Union(roleClaims);
 

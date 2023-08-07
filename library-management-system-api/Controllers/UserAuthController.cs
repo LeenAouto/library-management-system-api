@@ -13,12 +13,29 @@ namespace library_management_system_api.Controllers
         private readonly IUserAuthManager _userAuthManager;
         private readonly ILogger<UserAuthManager> _logger;
 
-        public UserAuthController(IUserAuthManager userAuthManager, ILogger<UserAuthManager> logger)
+        public UserAuthController(IUserAuthManager userAuthManager, ILogger<UserAuthManager> logger, LibraryDbContext context)
         {
             _userAuthManager = userAuthManager;
             _logger = logger;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync()
+        {
+            try
+            {
+                var users = await _userAuthManager.GetAll();
+                if (!users.Any())
+                    return NotFound($"No Users are found");
+
+                return Ok(users);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.StackTrace);
+                return BadRequest(e.Message);
+            }
+        }
 
         [HttpPost("register")]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterModel registerModel)

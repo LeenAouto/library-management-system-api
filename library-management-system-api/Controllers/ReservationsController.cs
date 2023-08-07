@@ -114,7 +114,7 @@ namespace library_management_system_api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAsync(int id, [FromForm] RecievedReservationDTO dto)
+        public async Task<IActionResult> UpdateAsync(int id, [FromBody] RecievedReservationDTO dto)
         {
             try
             {
