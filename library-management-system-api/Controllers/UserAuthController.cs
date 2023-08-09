@@ -50,6 +50,8 @@ namespace library_management_system_api.Controllers
                 if (!result.IsAuthenticated)
                     return BadRequest(result.Message);
 
+                SetRefreshTokenInCookie(result.RefreshToken, result.RefreshTokenExpiration);
+
                 return Ok(result);
             }
             catch (Exception e){
@@ -70,6 +72,9 @@ namespace library_management_system_api.Controllers
 
                 if (!result.IsAuthenticated)
                     return BadRequest(result.Message);
+
+                if (!string.IsNullOrEmpty(result.RefreshToken))
+                    SetRefreshTokenInCookie(result.RefreshToken, result.RefreshTokenExpiration);
 
                 return Ok(result);
             }
@@ -101,6 +106,64 @@ namespace library_management_system_api.Controllers
                 _logger.LogError(e.StackTrace);
                 return BadRequest(e.Message);
             }
+        }
+
+        [HttpGet("refreshToken")]
+        public async Task<IActionResult> RefreshToken()
+        {
+            try
+            {
+                var refreshToken = Request.Cookies["refreshToken"];
+
+                var result = await _userAuthManager.RefreshTokenAsync(refreshToken);
+
+                if (!result.IsAuthenticated)
+                    return BadRequest(result);
+
+                SetRefreshTokenInCookie(result.RefreshToken, result.RefreshTokenExpiration);
+
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.StackTrace);
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpPost("revokeToken")]
+        public async Task<IActionResult> RevokeToken([FromBody] RevokeToken dto)
+        {
+            try
+            {
+                var token = dto.Token ?? Request.Cookies["refreshToken"];
+
+                if (string.IsNullOrEmpty(token))
+                    return BadRequest("Token is required");
+
+                var result = await _userAuthManager.RevokeTokenAsync(token);
+
+                if (!result)
+                    return BadRequest("Token is Invalid");
+
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.StackTrace);
+                return BadRequest(e.Message);
+            }
+        }
+
+        private void SetRefreshTokenInCookie(string refreshToken, DateTime expires)
+        {
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = expires.ToLocalTime()
+            };
+
+            Response.Cookies.Append("refreshToken", refreshToken, cookieOptions);
         }
     }
 }

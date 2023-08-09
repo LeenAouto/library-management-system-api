@@ -44,9 +44,6 @@ builder.Services.AddAuthentication(options =>
 var _logger = new LoggerConfiguration().
     ReadFrom.Configuration(builder.Configuration).
     Enrich.FromLogContext()
-    //.MinimumLevel.Error()
-    //.WriteTo.File("D:\\Program Files\\source\\repos\\library-management-system-api\\Helpers\\SeriLogs\\log-.txt",
-    //rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 //builder.Host.UseSerilog();
@@ -62,6 +59,7 @@ builder.Services.AddTransient<IReservationManager, ReservationManager>();
 builder.Services.AddScoped<IUserAuthManager, UserAuthManager>();
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

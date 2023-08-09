@@ -11,5 +11,8 @@ namespace Abstractions
         Task<AuthModel> GetTokenAsync(TokenRequestModel model); //sign in
         Task<string> AddRoleAsync(AddRoleModel model); //adding a user to a role
         Task<bool> UserExists(string userId);
+
+        Task<AuthModel> RefreshTokenAsync(string token);
+        Task<bool> RevokeTokenAsync(string token);
     }
 }

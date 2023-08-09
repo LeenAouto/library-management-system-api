@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Entities.AuthModels;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
 namespace Entities
@@ -10,5 +11,7 @@ namespace Entities
 
         [MaxLength(50)]
         public string LastName { get; set; }
+
+        public IList<RefreshToken>? RefreshTokens { get; set; }
     }
 }
